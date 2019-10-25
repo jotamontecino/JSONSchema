@@ -1,0 +1,15 @@
+{
+  "name": "jsonschema",
+  "version": "1.0.0",
+  "description": "Handle JSON schema, validation, fill, format, filter and sanitize",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}

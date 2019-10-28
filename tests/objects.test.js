@@ -83,14 +83,51 @@ const simpleExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be boolean"],
-    value: 0
+    value: {
+      text: "j'ai Sauté",
+      int: 9
+    }
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: true
+    value: {
+      text: "jai Sautzqsffeq qsd sqd qsdfsd qsfqsd qdfqsd",
+      int: 3
+    }
   }
 ];
+
+const complexeSchema = {
+  type: "object",
+  properties: {
+    text: {
+      type: "string",
+      pattern: "[a-zA-Z0-9 ]+",
+      minLength: 5,
+      maxLength: 20
+    },
+    int: {
+      type: "integer",
+      minimum: 8,
+      exclusiveMinimum: true,
+      maximum: 20,
+      exclusiveMaximum: true,
+    },
+    address: {
+      type: "object",
+      properties: {
+        city: {
+          type: "string"
+        },
+        country: {
+          type: "string"
+        }
+      }
+    }
+  },
+  required: ["text"]
+}
 
 describe('Object validation', () => {
   const schema = JSONFactory(basicSchema);
@@ -103,9 +140,9 @@ describe('simple Object validation', () => {
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(simpleSchemaToJson));
   });
-  // basicExemples.forEach((testItem) => {
-  //   test(testItem.title, () => {
-  //     expect(schema.validate(testItem.value)).toEqual(testItem.result);
-  //   })
-  // });
+  simpleExemples.forEach((testItem) => {
+    test(testItem.title, () => {
+      expect(schema.validate(testItem.value)).toEqual(testItem.result);
+    })
+  });
 });

@@ -13,6 +13,7 @@ const basicSchema = {
 }
 const basicSchemaToJson = {
   type: 'object',
+  description:"",
   properties: {
     text: {
       type: 'string',
@@ -33,6 +34,7 @@ const basicSchemaToJson = {
       exclusiveMaximum: null
     }
   },
+  additionalProperties:true,
   required: null
 }
 
@@ -57,6 +59,7 @@ const simpleSchema = {
 }
 const simpleSchemaToJson = {
   type: 'object',
+  description:"",
   properties: {
     text: {
       type: 'string',
@@ -77,6 +80,7 @@ const simpleSchemaToJson = {
       exclusiveMaximum: true
     }
   },
+  additionalProperties:true,
   required: null
 }
 const simpleExemples = [
@@ -134,17 +138,18 @@ const simpleExemples = [
     result: false,
     value: {
       text: "jai Sautzq0 9",
-      int: 12
+      int: 12,
+      nouveauChamps: true
     }
   }
 ];
-
+/////////////////////////////////////
 const complexeSchema = {
   type: "object",
   properties: {
     text: {
       type: "string",
-      pattern: "[a-zA-Z0-9 ]+",
+      pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
       maxLength: 20
     },
@@ -154,6 +159,9 @@ const complexeSchema = {
       exclusiveMinimum: true,
       maximum: 20,
       exclusiveMaximum: true,
+    },
+    bool: {
+      type: "boolean"
     },
     address: {
       type: "object",
@@ -165,10 +173,240 @@ const complexeSchema = {
           type: "string"
         }
       }
+    },
+    obj: {
+      type: "object",
+      properties: {}
     }
   },
-  required: ["text"]
+  additionalProperties: false,
+  required: ["text", "int"]
+};
+const complexeSchemaToJSON = {
+   "type":"object",
+   "description":"",
+   "properties":{
+      "text":{
+         "type":"string",
+         "description":"",
+         "defaultValue":null,
+         "pattern":"^[a-zA-Z0-9 ]+$",
+         "minLength":5,
+         "maxLength":20
+      },
+      "int":{
+         "type":"integer",
+         "description":"",
+         "defaultValue":null,
+         "multipleOf":null,
+         "minimum":8,
+         "exclusiveMinimum":true,
+         "maximum":20,
+         "exclusiveMaximum":true
+      },
+      "bool":{
+         "type":"boolean",
+         "description":"",
+         "defaultValue":null
+      },
+      "address":{
+         "type":"object",
+         "description":"",
+         "properties":{
+            "city":{
+               "type":"string",
+               "description":"",
+               "defaultValue":null,
+               "pattern":null,
+               "minLength":null,
+               "maxLength":null
+            },
+            "country":{
+               "type":"string",
+               "description":"",
+               "defaultValue":null,
+               "pattern":null,
+               "minLength":null,
+               "maxLength":null
+            }
+         },
+         "additionalProperties":true,
+         "required":null
+      },
+      "obj":{
+         "type":"object",
+         "description":"",
+         "properties":{
+
+         },
+         "additionalProperties":true,
+         "required":null
+      }
+   },
+   "additionalProperties":false,
+   "required":[
+      "text", "int"
+   ]
 }
+const complexeExemples = [
+  {
+    title: "Required props not defined",
+    result: ["The property text is required but not found."],
+    value: {
+      int: 9
+    }
+  },
+  {
+    title: "Additional property not allowed",
+    result: ["The property tutu isn't allowed by the schema."],
+    value: {
+      text: "90867ET",
+      int: 9,
+      tutu: true
+    }
+  },
+  {
+    title: "Required props with allowed values doesn't return an error",
+    result: false,
+    value: {
+      text: "90867ET",
+      int: 9
+    }
+  },
+];
+
+/////////////////////////////////////
+const nestedchema = {
+  type: "object",
+  properties: {
+    text: {
+      type: "string",
+      pattern: "^[a-zA-Z0-9 ]+$",
+      minLength: 5,
+      maxLength: 20
+    },
+    int: {
+      type: "integer",
+      minimum: 8,
+      exclusiveMinimum: true,
+      maximum: 20,
+      exclusiveMaximum: true,
+    },
+    bool: {
+      type: "boolean"
+    },
+    address: {
+      type: "object",
+      properties: {
+        city: {
+          type: "string"
+        },
+        country: {
+          type: "string"
+        }
+      },
+      required: ["city", "country"]
+    },
+    obj: {
+      type: "object",
+      properties: {}
+    }
+  },
+  additionalProperties: false,
+  required: ["text", "address"]
+};
+const nestedSchemaToJSON = {
+   "type":"object",
+   "description":"",
+   "properties":{
+      "text":{
+         "type":"string",
+         "description":"",
+         "defaultValue":null,
+         "pattern":"^[a-zA-Z0-9 ]+$",
+         "minLength":5,
+         "maxLength":20
+      },
+      "int":{
+         "type":"integer",
+         "description":"",
+         "defaultValue":null,
+         "multipleOf":null,
+         "minimum":8,
+         "exclusiveMinimum":true,
+         "maximum":20,
+         "exclusiveMaximum":true
+      },
+      "bool":{
+         "type":"boolean",
+         "description":"",
+         "defaultValue":null
+      },
+      "address":{
+         "type":"object",
+         "description":"",
+         "properties":{
+            "city":{
+               "type":"string",
+               "description":"",
+               "defaultValue":null,
+               "pattern":null,
+               "minLength":null,
+               "maxLength":null
+            },
+            "country":{
+               "type":"string",
+               "description":"",
+               "defaultValue":null,
+               "pattern":null,
+               "minLength":null,
+               "maxLength":null
+            },
+         },
+         "additionalProperties":true,
+         required: ["city", "country"],
+      },
+      "obj":{
+         "type":"object",
+         "description":"",
+         "properties":{
+
+         },
+         "additionalProperties":true,
+         "required":null
+      }
+   },
+   "additionalProperties":false,
+   "required":[
+      "text", "address"
+   ]
+}
+const nestedExemples = [
+  {
+    title: "Nested Object without the required properties",
+    result: [{
+      "errors": [
+        "The property country is required but not found.",
+      ],
+      "path": "address",
+    }],
+    value: {
+      text: "3OSNDHFIQK",
+      address: {
+        city : "Ville"
+      }
+    }
+  },
+  {
+    title: "Required props with allowed values doesn't return an error",
+    result: false,
+    value: {
+      text: "90867ET",
+      int: 9
+    }
+  },
+];
+
 
 describe('Object validation', () => {
   const schema = JSONFactory(basicSchema);
@@ -176,12 +414,35 @@ describe('Object validation', () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });
 });
+
 describe('simple Object validation', () => {
   const schema = JSONFactory(simpleSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(simpleSchemaToJson));
   });
   simpleExemples.forEach((testItem) => {
+    test(testItem.title, () => {
+      expect(schema.validate(testItem.value)).toEqual(testItem.result);
+    })
+  });
+});
+describe('complexe Object validation', () => {
+  const schema = JSONFactory(complexeSchema);
+  test('The schema is compiled', () => {
+    expect(schema.toString()).toBe(JSON.stringify(complexeSchemaToJSON));
+  });
+  complexeExemples.forEach((testItem) => {
+    test(testItem.title, () => {
+      expect(schema.validate(testItem.value)).toEqual(testItem.result);
+    })
+  });
+});
+describe('nested Objects validation', () => {
+  const schema = JSONFactory(nestedchema);
+  test('The schema is compiled', () => {
+    expect(schema.toString()).toBe(JSON.stringify(nestedSchemaToJSON));
+  });
+  nestedExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
     })

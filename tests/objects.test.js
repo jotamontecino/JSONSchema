@@ -398,11 +398,25 @@ const nestedExemples = [
     }
   },
   {
-    title: "Required props with allowed values doesn't return an error",
+    title: "Bad type for a nested property return an error",
+    result: [{"errors": [{"errors": ["Type should be string"], "path": "country"}], "path": "address"}],
+    value: {
+      text: "90867ET",
+      address: {
+        city : "Ville",
+        country: 9
+      }
+    }
+  },
+  {
+    title: "Valid JSON doesn't return error",
     result: false,
     value: {
       text: "90867ET",
-      int: 9
+      address: {
+        city : "Ville",
+        country: "Pays"
+      }
     }
   },
 ];

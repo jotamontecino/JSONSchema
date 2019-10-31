@@ -34,7 +34,7 @@ const stringSchemaStdToJson = {
 const stringSchemaStdExemples = [
   {
     title: "The pattern doesn't validate the value",
-    result: ['String doesn\'t validate for the pattern "\\d{12}"'],
+    result: ["String doesn't validate for the pattern \"\\d{12}\""],
     value: "test"
   },
   {
@@ -71,7 +71,7 @@ const stringSchemaMinLengthToJson = {
 const stringSchemaMinLengthExemples = [
   {
     title: "The pattern doesn't validate the value",
-    result: ['String should be at least "10" long.'],
+    result: ["String should be at least \"10\" long."],
     value: "test"
   },
   {
@@ -108,7 +108,7 @@ const stringSchemaMaxLengthToJson = {
 const stringSchemaMaxLengthExemples = [
   {
     title: "The pattern doesn't validate the value",
-    result: ['String should be at most "13" long.'],
+    result: ["String should be at most \"13\" long."],
     value: "ceci est un test pour le max du string"
   },
   {
@@ -147,27 +147,27 @@ const stringSchemaCompleteExemples = [
   },
   {
     title: "The pattern doesn't validate the value",
-    result: ['String doesn\'t validate for the pattern "^[a-zA-Z]+$"'],
+    result: ["String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
     value: "ceci est un test po"
   },
   {
     title: "The minLength is not reached for the value",
-    result: ['String should be at least "8" long.'],
+    result: ["String should be at least \"8\" long."],
     value: "aaZa"
   },
   {
     title: "The minLength is not reached for the value and the pattern doesn't validate the value",
-    result: ['String should be at least "8" long.', 'String doesn\'t validate for the pattern "^[a-zA-Z]+$"'],
+    result: ["String should be at least \"8\" long.", "String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
     value: "aa 2Za"
   },
   {
     title: "The value length is above the maxLength",
-    result: ['String should be at most "20" long.'],
+    result: ["String should be at most \"20\" long."],
     value: "AZERTYytrezaRtyudZerR"
   },
   {
     title: "The value length is above the maxLength and the pattern doesn't validate the value",
-    result: ['String should be at most "20" long.', 'String doesn\'t validate for the pattern "^[a-zA-Z]+$"'],
+    result: ["String should be at most \"20\" long.", "String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
     value: "AZER TYytreza1 2RtyudZerR"
   },
   {
@@ -177,25 +177,25 @@ const stringSchemaCompleteExemples = [
   }
 ];
 
-describe('Basic String schema, should return the same schema', () => {
-  test('Does the schema compile and return a valide json schema', () => {
+describe("Basic String schema, should return the same schema", () => {
+  test("Does the schema compile and return a valide json schema", () => {
     const schema = jsonFactory(basicStringSchema);
     expect(schema.toString()).toBe(JSON.stringify(basicStringSchemaToJson));
   });
 })
 
-describe('Standard string schema with a regex type pattern shouldn\'t compile', () => {
+describe("Standard string schema with a regex type pattern shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
     jsonFactory(stringSchemaStdInvalid)
   }
-  test('The schema shouldn\'t compiled', () => {
+  test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
-describe('standard string schema with a simple pattern', () => {
+describe("standard string schema with a simple pattern", () => {
   const schema = jsonFactory(stringSchemaStd);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaStdToJson));
   });
   stringSchemaStdExemples.forEach((testItem) => {
@@ -205,18 +205,18 @@ describe('standard string schema with a simple pattern', () => {
   });
 })
 
-describe('Standard string schema with a string minLength shouldn\'t compile', () => {
+describe("Standard string schema with a string minLength shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
     jsonFactory(stringSchemaMinLengthInvalid)
   }
-  test('The schema shouldn\'t compiled', () => {
+  test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
-describe('standard string schema with a minLength', () => {
+describe("standard string schema with a minLength", () => {
   const schema = jsonFactory(stringSchemaMinLength);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaMinLengthToJson));
   });
   stringSchemaMinLengthExemples.forEach((testItem) => {
@@ -226,18 +226,18 @@ describe('standard string schema with a minLength', () => {
   });
 })
 
-describe('Standard string schema with a string maxLength shouldn\'t compile', () => {
+describe("Standard string schema with a string maxLength shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
     jsonFactory(stringSchemaMaxLengthInvalid)
   }
-  test('The schema shouldn\'t compiled', () => {
+  test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
-describe('standard string schema with a maxLength', () => {
+describe("standard string schema with a maxLength", () => {
   const schema = jsonFactory(stringSchemaMaxLength);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaMaxLengthToJson));
   });
   stringSchemaMaxLengthExemples.forEach((testItem) => {
@@ -247,9 +247,9 @@ describe('standard string schema with a maxLength', () => {
   });
 })
 
-describe('complete string schema', () => {
+describe("complete string schema", () => {
   const schema = jsonFactory(stringSchemaComplete);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaCompleteToJson));
   });
   stringSchemaCompleteExemples.forEach((testItem) => {

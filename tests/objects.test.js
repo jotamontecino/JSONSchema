@@ -12,20 +12,20 @@ const basicSchema = {
   }
 }
 const basicSchemaToJson = {
-  type: 'object',
+  type: "object",
   description:"",
   properties: {
     text: {
-      type: 'string',
-      description: '',
+      type: "string",
+      description: "",
       defaultValue: null,
       pattern: null,
       minLength: null,
       maxLength: null
     },
     int: {
-      type: 'integer',
-      description: '',
+      type: "integer",
+      description: "",
       defaultValue: null,
       multipleOf: null,
       minimum: null,
@@ -58,20 +58,20 @@ const simpleSchema = {
   }
 }
 const simpleSchemaToJson = {
-  type: 'object',
+  type: "object",
   description:"",
   properties: {
     text: {
-      type: 'string',
-      description: '',
+      type: "string",
+      description: "",
       defaultValue: null,
       pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
       maxLength: 20
     },
     int: {
-      type: 'integer',
-      description: '',
+      type: "integer",
+      description: "",
       defaultValue: null,
       multipleOf: null,
       minimum: 8,
@@ -119,13 +119,13 @@ const simpleExemples = [
   {
     title: "Multiple errors inside multiple props",
     result: [ {
-        path: 'text',
-        errors: [ 'String should be at most "20" long.',
-           'String doesn\'t validate for the pattern "^[a-zA-Z0-9 ]+$"' ]
+        path: "text",
+        errors: [ "String should be at most \"20\" long.",
+           "String doesn't validate for the pattern \"^[a-zA-Z0-9 ]+$\"" ]
       },
       {
-        path: 'int',
-        errors: [ 'The integer value is below the defined strict minimum (8)' ]
+        path: "int",
+        errors: [ "The integer value is below the defined strict minimum (8)" ]
       }
     ],
     value: {
@@ -422,16 +422,16 @@ const nestedExemples = [
 ];
 
 
-describe('Object validation', () => {
+describe("Object validation", () => {
   const schema = jsonFactory(basicSchema);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });
 });
 
-describe('simple Object validation', () => {
+describe("simple Object validation", () => {
   const schema = jsonFactory(simpleSchema);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(simpleSchemaToJson));
   });
   simpleExemples.forEach((testItem) => {
@@ -440,9 +440,9 @@ describe('simple Object validation', () => {
     })
   });
 });
-describe('complexe Object validation', () => {
+describe("complexe Object validation", () => {
   const schema = jsonFactory(complexeSchema);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(complexeSchemaToJSON));
   });
   complexeExemples.forEach((testItem) => {
@@ -451,9 +451,9 @@ describe('complexe Object validation', () => {
     })
   });
 });
-describe('nested Objects validation', () => {
+describe("nested Objects validation", () => {
   const schema = jsonFactory(nestedchema);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(nestedSchemaToJSON));
   });
   nestedExemples.forEach((testItem) => {

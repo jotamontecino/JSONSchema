@@ -21,9 +21,9 @@ const basicExemples = [
   }
 ];
 
-describe('Boolean validation', () => {
+describe("Boolean validation", () => {
   const schema = jsonFactory(basicSchema);
-  test('The schema is compiled', () => {
+  test("The schema is compiled", () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });
   basicExemples.forEach((testItem) => {

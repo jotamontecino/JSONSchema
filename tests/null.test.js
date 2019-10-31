@@ -1,7 +1,7 @@
 const jsonFactory = require("../lib");
 
 const basicSchema = {
-  type: "null"
+  type: "null",
 };
 const basicSchemaToJson = {
   type: "null",
@@ -29,6 +29,6 @@ describe("Null validation", () => {
   basicExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 });

@@ -122,11 +122,11 @@ const simpleExemples = [
       {
         path: "text",
         errors: [ "String should be at most \"20\" long.",
-           "String doesn't validate for the pattern \"^[a-zA-Z0-9 ]+$\"" ]
+         "String doesn't validate for the pattern \"^[a-zA-Z0-9 ]+$\"" ]
       },
       {
         path: "int",
-        errors: [ "The integer value is below the defined strict minimum (8)" ]
+        errors: [ "The integer value is below the defined strict minimum (8)", ]
       }
     ],
     value: {
@@ -292,19 +292,19 @@ const nestedchema = {
       exclusiveMaximum: true,
     },
     bool: {
-      type: "boolean"
+      type: "boolean",
     },
     address: {
       type: "object",
       properties: {
         city: {
-          type: "string"
+          type: "string",
         },
         country: {
-          type: "string"
+          type: "string",
         }
       },
-      required: ["city", "country"]
+      required: ["city", "country"],
     },
     obj: {
       type: "object",
@@ -315,70 +315,70 @@ const nestedchema = {
   required: ["text", "address"]
 };
 const nestedSchemaToJSON = {
-   "type":"object",
-   "description":"",
-   "properties":{
-      "text":{
-         "type":"string",
-         "description":"",
-         "defaultValue":null,
-         "pattern":"^[a-zA-Z0-9 ]+$",
-         "minLength":5,
-         "maxLength":20,
-      },
-      "int":{
-         "type":"integer",
-         "description":"",
-         "defaultValue":null,
-         "multipleOf":null,
-         "minimum":8,
-         "exclusiveMinimum":true,
-         "maximum":20,
-         "exclusiveMaximum":true,
-      },
-      "bool":{
-         "type":"boolean",
-         "description":"",
-         "defaultValue":null,
-      },
-      "address":{
-         "type":"object",
-         "description":"",
-         "properties":{
-            "city":{
-               "type":"string",
-               "description":"",
-               "defaultValue":null,
-               "pattern":null,
-               "minLength":null,
-               "maxLength":null,
-            },
-            "country":{
-               "type":"string",
-               "description":"",
-               "defaultValue":null,
-               "pattern":null,
-               "minLength":null,
-               "maxLength":null,
-            },
-         },
-         "additionalProperties":true,
-         required: ["city", "country"],
-      },
-      "obj":{
-         "type":"object",
-         "description":"",
-         "properties":{
+  "type":"object",
+  "description":"",
+  "properties":{
+    "text":{
+       "type":"string",
+       "description":"",
+       "defaultValue":null,
+       "pattern":"^[a-zA-Z0-9 ]+$",
+       "minLength":5,
+       "maxLength":20,
+    },
+    "int":{
+       "type":"integer",
+       "description":"",
+       "defaultValue":null,
+       "multipleOf":null,
+       "minimum":8,
+       "exclusiveMinimum":true,
+       "maximum":20,
+       "exclusiveMaximum":true,
+    },
+    "bool":{
+       "type":"boolean",
+       "description":"",
+       "defaultValue":null,
+    },
+    "address":{
+       "type":"object",
+       "description":"",
+       "properties":{
+          "city":{
+             "type":"string",
+             "description":"",
+             "defaultValue":null,
+             "pattern":null,
+             "minLength":null,
+             "maxLength":null,
+          },
+          "country":{
+             "type":"string",
+             "description":"",
+             "defaultValue":null,
+             "pattern":null,
+             "minLength":null,
+             "maxLength":null,
+          },
+       },
+       "additionalProperties":true,
+       required: ["city", "country"],
+    },
+    "obj":{
+       "type":"object",
+       "description":"",
+       "properties":{
 
-         },
-         "additionalProperties":true,
-         "required":null
-      }
-   },
-   "additionalProperties":false,
-   "required":[
-      "text", "address"
-   ]
+       },
+       "additionalProperties":true,
+       "required":null
+    }
+  },
+  "additionalProperties":false,
+  "required":[
+    "text", "address"
+  ]
 }
 const nestedExemples = [
   {

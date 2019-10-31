@@ -1,7 +1,7 @@
 const jsonFactory = require("../lib");
 
 const basicStringSchema = {
-  type: "string"
+  type: "string",
 }
 const basicStringSchemaToJson = {
   type: "string",
@@ -174,7 +174,7 @@ const stringSchemaCompleteExemples = [
     title: "A good value shouldn't return errors",
     result: false,
     value: "AzerZerZAr",
-  }
+  },
 ];
 
 describe("Basic String schema, should return the same schema", () => {
@@ -187,7 +187,7 @@ describe("Basic String schema, should return the same schema", () => {
 describe("Standard string schema with a regex type pattern shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    jsonFactory(stringSchemaStdInvalid)
+    jsonFactory(stringSchemaStdInvalid);
   }
   test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
@@ -201,14 +201,14 @@ describe("standard string schema with a simple pattern", () => {
   stringSchemaStdExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 })
 
 describe("Standard string schema with a string minLength shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    jsonFactory(stringSchemaMinLengthInvalid)
+    jsonFactory(stringSchemaMinLengthInvalid);
   }
   test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
@@ -222,14 +222,14 @@ describe("standard string schema with a minLength", () => {
   stringSchemaMinLengthExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 })
 
 describe("Standard string schema with a string maxLength shouldn't compile", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    jsonFactory(stringSchemaMaxLengthInvalid)
+    jsonFactory(stringSchemaMaxLengthInvalid);
   }
   test("The schema shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
@@ -243,7 +243,7 @@ describe("standard string schema with a maxLength", () => {
   stringSchemaMaxLengthExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 })
 
@@ -255,6 +255,6 @@ describe("complete string schema", () => {
   stringSchemaCompleteExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 })

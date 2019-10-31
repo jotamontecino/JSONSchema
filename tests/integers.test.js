@@ -303,7 +303,7 @@ describe("MultipleOf invalid property", () => {
   test("Invalid strictMaximum value shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for an Integer$/);
   });
-})
+});
 describe("MultipleOf validation", () => {
   const schema = jsonFactory(multipleOfSchema);
   test("The schema is compiled", () => {

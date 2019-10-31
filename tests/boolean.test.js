@@ -29,6 +29,6 @@ describe("Boolean validation", () => {
   basicExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 });

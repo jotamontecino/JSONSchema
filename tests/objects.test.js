@@ -237,9 +237,7 @@ const complexeSchemaToJSON = {
       "obj":{
          "type":"object",
          "description":"",
-         "properties":{
-
-         },
+         "properties":{},
          "additionalProperties":true,
          "required":null,
       },

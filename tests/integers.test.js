@@ -221,10 +221,10 @@ describe("Basic Integer schema, should return the same schema", () => {
 describe("Minimum and strictMinimum invalid property", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compileMinimum() {
-    jsonFactory(minimumInvalidFloatSchema)
+    jsonFactory(minimumInvalidFloatSchema);
   }
   function compileStrictMinimum() {
-    jsonFactory(strictMinimumInvalidValueSchema)
+    jsonFactory(strictMinimumInvalidValueSchema);
   }
   test("Invalid minimum value shouldn't compiled", () => {
     expect(compileMinimum).toThrow(/^Invalide schema definition for an Integer$/);
@@ -260,10 +260,10 @@ describe("Exclusive Minimum validation", () => {
 describe("Maximum and strictMaximum invalid property", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compileMaximum() {
-    jsonFactory(maximumInvalidFloatSchema)
+    jsonFactory(maximumInvalidFloatSchema);
   }
   function compileStrictMaximum() {
-    jsonFactory(strictMaximumInvalidValueSchema)
+    jsonFactory(strictMaximumInvalidValueSchema);
   }
   test("Invalid maximum value shouldn't compiled", () => {
     expect(compileMaximum).toThrow(/^Invalide schema definition for an Integer$/);
@@ -298,7 +298,7 @@ describe("Exclusive Maximum validation", () => {
 describe("MultipleOf invalid property", () => {
   // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    jsonFactory(multipleOfInvalidSchema)
+    jsonFactory(multipleOfInvalidSchema);
   }
   test("Invalid strictMaximum value shouldn't compiled", () => {
     expect(compile).toThrow(/^Invalide schema definition for an Integer$/);

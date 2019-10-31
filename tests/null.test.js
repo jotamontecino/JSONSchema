@@ -12,13 +12,13 @@ const basicExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be null"],
-    value: 0
+    value: 0,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: null
-  }
+    value: null,
+  },
 ];
 
 describe("Null validation", () => {

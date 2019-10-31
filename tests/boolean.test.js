@@ -12,12 +12,12 @@ const basicExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be boolean"],
-    value: 0
+    value: 0,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: true
+    value: true,
   }
 ];
 

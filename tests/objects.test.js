@@ -4,12 +4,12 @@ const basicSchema = {
   type: "object",
   properties: {
     text: {
-      type: "string"
+      type: "string",
     },
     int: {
-      type: "integer"
-    }
-  }
+      type: "integer",
+    },
+  },
 }
 const basicSchemaToJson = {
   type: "object",
@@ -21,7 +21,7 @@ const basicSchemaToJson = {
       defaultValue: null,
       pattern: null,
       minLength: null,
-      maxLength: null
+      maxLength: null,
     },
     int: {
       type: "integer",
@@ -31,11 +31,11 @@ const basicSchemaToJson = {
       minimum: null,
       exclusiveMinimum: null,
       maximum: null,
-      exclusiveMaximum: null
+      exclusiveMaximum: null,
     }
   },
   additionalProperties:true,
-  required: null
+  required: null,
 }
 
 /////////////////////////////////////
@@ -46,7 +46,7 @@ const simpleSchema = {
       type: "string",
       pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
-      maxLength: 20
+      maxLength: 20,
     },
     int: {
       type: "integer",
@@ -54,8 +54,8 @@ const simpleSchema = {
       exclusiveMinimum: true,
       maximum: 20,
       exclusiveMaximum: true,
-    }
-  }
+    },
+  },
 }
 const simpleSchemaToJson = {
   type: "object",
@@ -67,7 +67,7 @@ const simpleSchemaToJson = {
       defaultValue: null,
       pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
-      maxLength: 20
+      maxLength: 20,
     },
     int: {
       type: "integer",
@@ -77,17 +77,17 @@ const simpleSchemaToJson = {
       minimum: 8,
       exclusiveMinimum: true,
       maximum: 20,
-      exclusiveMaximum: true
+      exclusiveMaximum: true,
     }
   },
   additionalProperties:true,
-  required: null
+  required: null,
 }
 const simpleExemples = [
   {
     title: "Invalid type return an error",
     result: ["The type should be Object"],
-    value: 9
+    value: 9,
   },
   {
     title: "Invalid prop inside the body",
@@ -99,8 +99,8 @@ const simpleExemples = [
     }],
     value: {
       text: "j'ai Sauté",
-      int: 9
-    }
+      int: 9,
+    },
   },
   {
     title: "Multiple errors inside one prop",
@@ -113,8 +113,8 @@ const simpleExemples = [
     }],
     value: {
       text: "j'ai Sauté 12345678900987654321",
-      int: 9
-    }
+      int: 9,
+    },
   },
   {
     title: "Multiple errors inside multiple props",
@@ -130,8 +130,8 @@ const simpleExemples = [
     ],
     value: {
       text: "j'ai Sauté 12345678900987654321",
-      int: 8
-    }
+      int: 8,
+    },
   },
   {
     title: "A good value shouldn't return errors",
@@ -139,8 +139,8 @@ const simpleExemples = [
     value: {
       text: "jai Sautzq0 9",
       int: 12,
-      nouveauChamps: true
-    }
+      nouveauChamps: true,
+    },
   }
 ];
 /////////////////////////////////////
@@ -151,7 +151,7 @@ const complexeSchema = {
       type: "string",
       pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
-      maxLength: 20
+      maxLength: 20,
     },
     int: {
       type: "integer",
@@ -170,17 +170,17 @@ const complexeSchema = {
           type: "string"
         },
         country: {
-          type: "string"
+          type: "string",
         }
       }
     },
     obj: {
       type: "object",
-      properties: {}
-    }
+      properties: {},
+    },
   },
   additionalProperties: false,
-  required: ["text", "int"]
+  required: ["text", "int"],
 };
 const complexeSchemaToJSON = {
    "type":"object",

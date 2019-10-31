@@ -11,20 +11,20 @@ const basicSchemaToJson = {
   minimum:null,
   exclusiveMinimum:null,
   maximum:null,
-  exclusiveMaximum:null
+  exclusiveMaximum:null,
 }
 
 ////////////////////////////
 const minimumInvalidFloatSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  minimum: 1.2
+  minimum: 1.2,
 }
 const strictMinimumInvalidValueSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
   minimum: 1,
-  exclusiveMinimum: 0
+  exclusiveMinimum: 0,
 }
 
 const inclusiveMinimumSchema = {
@@ -40,23 +40,23 @@ const inclusiveMinimumSchemaToJSON = {
   minimum:12,
   exclusiveMinimum:null,
   maximum:null,
-  exclusiveMaximum:null
+  exclusiveMaximum:null,
 }
 const inclusiveMinimumExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be integer"],
-    value: "qsdf"
+    value: "qsdf",
   },
   {
     title: "A value below the minimum should return an error",
     result: ["The integer value is below the defined minimum (12)"],
-    value: 10
+    value: 10,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: 15
+    value: 15,
   }
 ];
 
@@ -64,7 +64,7 @@ const exclusiveMinimumSchema = {
   type: "integer",
   description: "exclusiveMinimumSchema",
   minimum: 12,
-  exclusiveMinimum: true
+  exclusiveMinimum: true,
 }
 const exclusiveMinimumSchemaToJSON = {
   type: "integer",
@@ -74,23 +74,23 @@ const exclusiveMinimumSchemaToJSON = {
   minimum:12,
   exclusiveMinimum:true,
   maximum:null,
-  exclusiveMaximum:null
+  exclusiveMaximum:null,
 }
 const exclusiveMinimumExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be integer"],
-    value: "qsdf"
+    value: "qsdf",
   },
   {
     title: "A value below the exclusive minimum shouldn't return an error",
     result: ["The integer value is below the defined strict minimum (12)"],
-    value: 12
+    value: 12,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: 15
+    value: 15,
   }
 ];
 
@@ -98,13 +98,13 @@ const exclusiveMinimumExemples = [
 const maximumInvalidFloatSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  minimum: 1.2
+  minimum: 1.2,
 }
 const strictMaximumInvalidValueSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
   minimum: 1,
-  exclusiveMinimum: 0
+  exclusiveMinimum: 0,
 }
 const inclusiveMaximumSchema = {
   type: "integer",
@@ -119,23 +119,23 @@ const inclusiveMaximumSchemaToJSON = {
   minimum:null,
   exclusiveMinimum:null,
   maximum:12,
-  exclusiveMaximum:null
+  exclusiveMaximum:null,
 }
 const inclusiveMaximumExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be integer"],
-    value: "qsdf"
+    value: "qsdf",
   },
   {
     title: "A value above the maximum should return an error",
     result: ["The integer value is above the defined maximum (12)"],
-    value: 13
+    value: 13,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: 12
+    value: 12,
   }
 ];
 
@@ -143,7 +143,7 @@ const exclusiveMaximumSchema = {
   type: "integer",
   description: "exclusiveMinimumSchema",
   maximum: 12,
-  exclusiveMaximum: true
+  exclusiveMaximum: true,
 }
 const exclusiveMaximumSchemaToJSON = {
   type: "integer",
@@ -153,35 +153,35 @@ const exclusiveMaximumSchemaToJSON = {
   minimum:null,
   exclusiveMinimum:null,
   maximum:12,
-  exclusiveMaximum:true
+  exclusiveMaximum:true,
 }
 const exclusiveMaximumExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be integer"],
-    value: "qsdf"
+    value: "qsdf",
   },
   {
     title: "A value above or equal to the maximum should return an error",
     result: ["The integer value is above the defined strict maximum (12)"],
-    value: 12
+    value: 12,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: 10
+    value: 10,
   }
 ];
 
 const multipleOfInvalidSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  multipleOf: true
+  multipleOf: true,
 }
 const multipleOfSchema = {
   type: "integer",
   description: "exclusiveMinimumSchema",
-  multipleOf: 2.0
+  multipleOf: 2.0,
 }
 const multipleOfSchemaToJSON = {
   type: "integer",
@@ -191,23 +191,23 @@ const multipleOfSchemaToJSON = {
   minimum:null,
   exclusiveMinimum:null,
   maximum:null,
-  exclusiveMaximum:null
+  exclusiveMaximum:null,
 }
 const multipleOfSchemaExemples = [
   {
     title: "Invalid type return an error",
     result: ["Type should be integer"],
-    value: "qsdf"
+    value: "qsdf",
   },
   {
     title: "A value which isn't a multiple of *multipleOf* should return an error",
     result: ["The integer value should be a multiple of 2"],
-    value: 13
+    value: 13,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: 10
+    value: 10,
   }
 ];
 

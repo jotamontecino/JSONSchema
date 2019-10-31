@@ -9,19 +9,19 @@ const basicStringSchemaToJson = {
   defaultValue:null,
   pattern:null,
   minLength:null,
-  maxLength:null
+  maxLength:null,
 }
 
 ////////////////////////////
 const stringSchemaStdInvalid = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  pattern: /\d{12}/
+  pattern: /\d{12}/,
 }
 const stringSchemaStd = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  pattern: "\\d{12}"
+  pattern: "\\d{12}",
 }
 const stringSchemaStdToJson = {
   type: "string",
@@ -29,36 +29,36 @@ const stringSchemaStdToJson = {
   defaultValue:null,
   pattern: "\\d{12}",
   minLength:null,
-  maxLength:null
+  maxLength:null,
 }
 const stringSchemaStdExemples = [
   {
     title: "The pattern doesn't validate the value",
     result: ["String doesn't validate for the pattern \"\\d{12}\""],
-    value: "test"
+    value: "test",
   },
   {
     title: "Invalid type returns an error",
     result: ["Type should be string"],
-    value: 1
+    value: 1,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: "123456789012"
-  }
+    value: "123456789012",
+  },
 ];
 
 ////////////////////////////
 const stringSchemaMinLengthInvalid = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  minLength: "12"
+  minLength: "12",
 }
 const stringSchemaMinLength = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  minLength: 10
+  minLength: 10,
 }
 const stringSchemaMinLengthToJson = {
   type: "string",
@@ -66,36 +66,36 @@ const stringSchemaMinLengthToJson = {
   defaultValue:null,
   pattern: null,
   minLength:10,
-  maxLength:null
+  maxLength:null,
 }
 const stringSchemaMinLengthExemples = [
   {
     title: "The pattern doesn't validate the value",
     result: ["String should be at least \"10\" long."],
-    value: "test"
+    value: "test",
   },
   {
     title: "Invalid type returns an error",
     result: ["Type should be string"],
-    value: 1
+    value: 1,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: "123456789012"
-  }
+    value: "123456789012",
+  },
 ];
 
 ////////////////////////////
 const stringSchemaMaxLengthInvalid = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  maxLength: "13"
+  maxLength: "13",
 }
 const stringSchemaMaxLength = {
   type: "string",
   description: "Standard schema with a validaton pattern",
-  maxLength: 13
+  maxLength: 13,
 }
 const stringSchemaMaxLengthToJson = {
   type: "string",
@@ -103,23 +103,23 @@ const stringSchemaMaxLengthToJson = {
   defaultValue:null,
   pattern: null,
   minLength:null,
-  maxLength:13
+  maxLength:13,
 }
 const stringSchemaMaxLengthExemples = [
   {
     title: "The pattern doesn't validate the value",
     result: ["String should be at most \"13\" long."],
-    value: "ceci est un test pour le max du string"
+    value: "ceci est un test pour le max du string",
   },
   {
     title: "Invalid type returns an error",
     result: ["Type should be string"],
-    value: 1
+    value: 1,
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: "123456789012"
+    value: "123456789012",
   }
 ];
 
@@ -129,7 +129,7 @@ const stringSchemaComplete = {
   description: "Standard schema with a validaton pattern",
   pattern: "^[a-zA-Z]+$",
   minLength: 8,
-  maxLength: 20
+  maxLength: 20,
 }
 const stringSchemaCompleteToJson = {
   type: "string",
@@ -137,43 +137,43 @@ const stringSchemaCompleteToJson = {
   defaultValue:null,
   pattern: "^[a-zA-Z]+$",
   minLength:8,
-  maxLength:20
+  maxLength:20,
 }
 const stringSchemaCompleteExemples = [
   {
     title: "Invalid type returns an error",
     result: ["Type should be string"],
-    value: 1
+    value: 1,
   },
   {
     title: "The pattern doesn't validate the value",
     result: ["String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
-    value: "ceci est un test po"
+    value: "ceci est un test po",
   },
   {
     title: "The minLength is not reached for the value",
     result: ["String should be at least \"8\" long."],
-    value: "aaZa"
+    value: "aaZa",
   },
   {
     title: "The minLength is not reached for the value and the pattern doesn't validate the value",
     result: ["String should be at least \"8\" long.", "String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
-    value: "aa 2Za"
+    value: "aa 2Za",
   },
   {
     title: "The value length is above the maxLength",
     result: ["String should be at most \"20\" long."],
-    value: "AZERTYytrezaRtyudZerR"
+    value: "AZERTYytrezaRtyudZerR",
   },
   {
     title: "The value length is above the maxLength and the pattern doesn't validate the value",
     result: ["String should be at most \"20\" long.", "String doesn't validate for the pattern \"^[a-zA-Z]+$\""],
-    value: "AZER TYytreza1 2RtyudZerR"
+    value: "AZER TYytreza1 2RtyudZerR",
   },
   {
     title: "A good value shouldn't return errors",
     result: false,
-    value: "AzerZerZAr"
+    value: "AzerZerZAr",
   }
 ];
 

@@ -18,7 +18,7 @@ const basicExemples = [
     title: "A good value shouldn't return errors",
     result: false,
     value: true,
-  }
+  },
 ];
 
 describe("Boolean validation", () => {

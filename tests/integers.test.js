@@ -208,7 +208,7 @@ const multipleOfSchemaExemples = [
     title: "A good value shouldn't return errors",
     result: false,
     value: 10,
-  }
+  },
 ];
 
 describe("Basic Integer schema, should return the same schema", () => {
@@ -312,6 +312,6 @@ describe("MultipleOf validation", () => {
   multipleOfSchemaExemples.forEach((testItem) => {
     test(testItem.title, () => {
       expect(schema.validate(testItem.value)).toEqual(testItem.result);
-    })
+    });
   });
 });

@@ -118,7 +118,8 @@ const simpleExemples = [
   },
   {
     title: "Multiple errors inside multiple props",
-    result: [ {
+    result: [
+      {
         path: "text",
         errors: [ "String should be at most \"20\" long.",
            "String doesn't validate for the pattern \"^[a-zA-Z0-9 ]+$\"" ]
@@ -171,8 +172,8 @@ const complexeSchema = {
         },
         country: {
           type: "string",
-        }
-      }
+        },
+      },
     },
     obj: {
       type: "object",
@@ -192,7 +193,7 @@ const complexeSchemaToJSON = {
          "defaultValue":null,
          "pattern":"^[a-zA-Z0-9 ]+$",
          "minLength":5,
-         "maxLength":20
+         "maxLength":20,
       },
       "int":{
          "type":"integer",
@@ -202,12 +203,12 @@ const complexeSchemaToJSON = {
          "minimum":8,
          "exclusiveMinimum":true,
          "maximum":20,
-         "exclusiveMaximum":true
+         "exclusiveMaximum":true,
       },
       "bool":{
          "type":"boolean",
          "description":"",
-         "defaultValue":null
+         "defaultValue":null,
       },
       "address":{
          "type":"object",
@@ -219,7 +220,7 @@ const complexeSchemaToJSON = {
                "defaultValue":null,
                "pattern":null,
                "minLength":null,
-               "maxLength":null
+               "maxLength":null,
             },
             "country":{
                "type":"string",
@@ -227,11 +228,11 @@ const complexeSchemaToJSON = {
                "defaultValue":null,
                "pattern":null,
                "minLength":null,
-               "maxLength":null
+               "maxLength":null,
             }
          },
          "additionalProperties":true,
-         "required":null
+         "required":null,
       },
       "obj":{
          "type":"object",
@@ -240,8 +241,8 @@ const complexeSchemaToJSON = {
 
          },
          "additionalProperties":true,
-         "required":null
-      }
+         "required":null,
+      },
    },
    "additionalProperties":false,
    "required":[
@@ -253,8 +254,8 @@ const complexeExemples = [
     title: "Required props not defined",
     result: ["The property text is required but not found."],
     value: {
-      int: 9
-    }
+      int: 9,
+    },
   },
   {
     title: "Additional property not allowed",
@@ -262,16 +263,16 @@ const complexeExemples = [
     value: {
       text: "90867ET",
       int: 9,
-      tutu: true
-    }
+      tutu: true,
+    },
   },
   {
     title: "Required props with allowed values doesn't return an error",
     result: false,
     value: {
       text: "90867ET",
-      int: 9
-    }
+      int: 9,
+    },
   },
 ];
 
@@ -283,7 +284,7 @@ const nestedchema = {
       type: "string",
       pattern: "^[a-zA-Z0-9 ]+$",
       minLength: 5,
-      maxLength: 20
+      maxLength: 20,
     },
     int: {
       type: "integer",
@@ -309,8 +310,8 @@ const nestedchema = {
     },
     obj: {
       type: "object",
-      properties: {}
-    }
+      properties: {},
+    },
   },
   additionalProperties: false,
   required: ["text", "address"]
@@ -325,7 +326,7 @@ const nestedSchemaToJSON = {
          "defaultValue":null,
          "pattern":"^[a-zA-Z0-9 ]+$",
          "minLength":5,
-         "maxLength":20
+         "maxLength":20,
       },
       "int":{
          "type":"integer",
@@ -335,12 +336,12 @@ const nestedSchemaToJSON = {
          "minimum":8,
          "exclusiveMinimum":true,
          "maximum":20,
-         "exclusiveMaximum":true
+         "exclusiveMaximum":true,
       },
       "bool":{
          "type":"boolean",
          "description":"",
-         "defaultValue":null
+         "defaultValue":null,
       },
       "address":{
          "type":"object",
@@ -352,7 +353,7 @@ const nestedSchemaToJSON = {
                "defaultValue":null,
                "pattern":null,
                "minLength":null,
-               "maxLength":null
+               "maxLength":null,
             },
             "country":{
                "type":"string",
@@ -360,7 +361,7 @@ const nestedSchemaToJSON = {
                "defaultValue":null,
                "pattern":null,
                "minLength":null,
-               "maxLength":null
+               "maxLength":null,
             },
          },
          "additionalProperties":true,
@@ -393,9 +394,9 @@ const nestedExemples = [
     value: {
       text: "3OSNDHFIQK",
       address: {
-        city : "Ville"
-      }
-    }
+        city : "Ville",
+      },
+    },
   },
   {
     title: "Bad type for a nested property return an error",
@@ -404,9 +405,9 @@ const nestedExemples = [
       text: "90867ET",
       address: {
         city : "Ville",
-        country: 9
-      }
-    }
+        country: 9,
+      },
+    },
   },
   {
     title: "Valid JSON doesn't return error",
@@ -415,9 +416,9 @@ const nestedExemples = [
       text: "90867ET",
       address: {
         city : "Ville",
-        country: "Pays"
-      }
-    }
+        country: "Pays",
+      },
+    },
   },
 ];
 

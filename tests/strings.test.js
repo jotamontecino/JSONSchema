@@ -1,4 +1,4 @@
-const JSONFactory = require("../lib");
+const jsonFactory = require("../lib");
 
 const basicStringSchema = {
   type: "string"
@@ -179,22 +179,22 @@ const stringSchemaCompleteExemples = [
 
 describe('Basic String schema, should return the same schema', () => {
   test('Does the schema compile and return a valide json schema', () => {
-    const schema = JSONFactory(basicStringSchema);
+    const schema = jsonFactory(basicStringSchema);
     expect(schema.toString()).toBe(JSON.stringify(basicStringSchemaToJson));
   });
 })
 
 describe('Standard string schema with a regex type pattern shouldn\'t compile', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    JSONFactory(stringSchemaStdInvalid)
+    jsonFactory(stringSchemaStdInvalid)
   }
   test('The schema shouldn\'t compiled', () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
 describe('standard string schema with a simple pattern', () => {
-  const schema = JSONFactory(stringSchemaStd);
+  const schema = jsonFactory(stringSchemaStd);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaStdToJson));
   });
@@ -206,16 +206,16 @@ describe('standard string schema with a simple pattern', () => {
 })
 
 describe('Standard string schema with a string minLength shouldn\'t compile', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    JSONFactory(stringSchemaMinLengthInvalid)
+    jsonFactory(stringSchemaMinLengthInvalid)
   }
   test('The schema shouldn\'t compiled', () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
 describe('standard string schema with a minLength', () => {
-  const schema = JSONFactory(stringSchemaMinLength);
+  const schema = jsonFactory(stringSchemaMinLength);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaMinLengthToJson));
   });
@@ -227,16 +227,16 @@ describe('standard string schema with a minLength', () => {
 })
 
 describe('Standard string schema with a string maxLength shouldn\'t compile', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    JSONFactory(stringSchemaMaxLengthInvalid)
+    jsonFactory(stringSchemaMaxLengthInvalid)
   }
   test('The schema shouldn\'t compiled', () => {
     expect(compile).toThrow(/^Invalide schema definition for a String$/);
   });
 })
 describe('standard string schema with a maxLength', () => {
-  const schema = JSONFactory(stringSchemaMaxLength);
+  const schema = jsonFactory(stringSchemaMaxLength);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaMaxLengthToJson));
   });
@@ -248,7 +248,7 @@ describe('standard string schema with a maxLength', () => {
 })
 
 describe('complete string schema', () => {
-  const schema = JSONFactory(stringSchemaComplete);
+  const schema = jsonFactory(stringSchemaComplete);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(stringSchemaCompleteToJson));
   });

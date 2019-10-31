@@ -1,13 +1,13 @@
-const JSONFactory = require("../lib");
+const jsonFactory = require("../lib");
 
 const basicSchema = {
   type: "null"
-}
+};
 const basicSchemaToJson = {
   type: "null",
   description:"",
   defaultValue:null,
-}
+};
 const basicExemples = [
   {
     title: "Invalid type return an error",
@@ -22,7 +22,7 @@ const basicExemples = [
 ];
 
 describe('Null validation', () => {
-  const schema = JSONFactory(basicSchema);
+  const schema = jsonFactory(basicSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });

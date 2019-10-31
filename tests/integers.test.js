@@ -1,4 +1,4 @@
-const JSONFactory = require("../lib");
+const jsonFactory = require("../lib");
 
 const basicSchema = {
   type: "integer"
@@ -213,18 +213,18 @@ const multipleOfSchemaExemples = [
 
 describe('Basic Integer schema, should return the same schema', () => {
   test('The schema should compile and return a json schema', () => {
-    const schema = JSONFactory(basicSchema);
+    const schema = jsonFactory(basicSchema);
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });
 })
 
 describe('Minimum and strictMinimum invalid property', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compileMinimum() {
-    JSONFactory(minimumInvalidFloatSchema)
+    jsonFactory(minimumInvalidFloatSchema)
   }
   function compileStrictMinimum() {
-    JSONFactory(strictMinimumInvalidValueSchema)
+    jsonFactory(strictMinimumInvalidValueSchema)
   }
   test('Invalid minimum value shouldn\'t compiled', () => {
     expect(compileMinimum).toThrow(/^Invalide schema definition for an Integer$/);
@@ -234,7 +234,7 @@ describe('Minimum and strictMinimum invalid property', () => {
   });
 })
 describe('Inclusive Minimum validation', () => {
-  const schema = JSONFactory(inclusiveMinimumSchema);
+  const schema = jsonFactory(inclusiveMinimumSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(inclusiveMinimumSchemaToJSON));
   });
@@ -245,7 +245,7 @@ describe('Inclusive Minimum validation', () => {
   });
 });
 describe('Exclusive Minimum validation', () => {
-  const schema = JSONFactory(exclusiveMinimumSchema);
+  const schema = jsonFactory(exclusiveMinimumSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(exclusiveMinimumSchemaToJSON));
   });
@@ -258,12 +258,12 @@ describe('Exclusive Minimum validation', () => {
 
 
 describe('Maximum and strictMaximum invalid property', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compileMaximum() {
-    JSONFactory(maximumInvalidFloatSchema)
+    jsonFactory(maximumInvalidFloatSchema)
   }
   function compileStrictMaximum() {
-    JSONFactory(strictMaximumInvalidValueSchema)
+    jsonFactory(strictMaximumInvalidValueSchema)
   }
   test('Invalid maximum value shouldn\'t compiled', () => {
     expect(compileMaximum).toThrow(/^Invalide schema definition for an Integer$/);
@@ -273,7 +273,7 @@ describe('Maximum and strictMaximum invalid property', () => {
   });
 })
 describe('Inclusive Maximum validation', () => {
-  const schema = JSONFactory(inclusiveMaximumSchema);
+  const schema = jsonFactory(inclusiveMaximumSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(inclusiveMaximumSchemaToJSON));
   });
@@ -284,7 +284,7 @@ describe('Inclusive Maximum validation', () => {
   });
 });
 describe('Exclusive Maximum validation', () => {
-  const schema = JSONFactory(exclusiveMaximumSchema);
+  const schema = jsonFactory(exclusiveMaximumSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(exclusiveMaximumSchemaToJSON));
   });
@@ -296,16 +296,16 @@ describe('Exclusive Maximum validation', () => {
 });
 
 describe('MultipleOf invalid property', () => {
-  // const schema = JSONFactory(stringSchemaStdInvalid);
+  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compile() {
-    JSONFactory(multipleOfInvalidSchema)
+    jsonFactory(multipleOfInvalidSchema)
   }
   test('Invalid strictMaximum value shouldn\'t compiled', () => {
     expect(compile).toThrow(/^Invalide schema definition for an Integer$/);
   });
 })
 describe('MultipleOf validation', () => {
-  const schema = JSONFactory(multipleOfSchema);
+  const schema = jsonFactory(multipleOfSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(multipleOfSchemaToJSON));
   });

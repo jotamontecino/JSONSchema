@@ -1,4 +1,4 @@
-const JSONFactory = require("../lib");
+const jsonFactory = require("../lib");
 
 const basicSchema = {
   type: "boolean"
@@ -22,7 +22,7 @@ const basicExemples = [
 ];
 
 describe('Boolean validation', () => {
-  const schema = JSONFactory(basicSchema);
+  const schema = jsonFactory(basicSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });

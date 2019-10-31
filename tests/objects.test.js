@@ -1,4 +1,4 @@
-const JSONFactory = require("../lib");
+const jsonFactory = require("../lib");
 
 const basicSchema = {
   type: "object",
@@ -423,14 +423,14 @@ const nestedExemples = [
 
 
 describe('Object validation', () => {
-  const schema = JSONFactory(basicSchema);
+  const schema = jsonFactory(basicSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(basicSchemaToJson));
   });
 });
 
 describe('simple Object validation', () => {
-  const schema = JSONFactory(simpleSchema);
+  const schema = jsonFactory(simpleSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(simpleSchemaToJson));
   });
@@ -441,7 +441,7 @@ describe('simple Object validation', () => {
   });
 });
 describe('complexe Object validation', () => {
-  const schema = JSONFactory(complexeSchema);
+  const schema = jsonFactory(complexeSchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(complexeSchemaToJSON));
   });
@@ -452,7 +452,7 @@ describe('complexe Object validation', () => {
   });
 });
 describe('nested Objects validation', () => {
-  const schema = JSONFactory(nestedchema);
+  const schema = jsonFactory(nestedchema);
   test('The schema is compiled', () => {
     expect(schema.toString()).toBe(JSON.stringify(nestedSchemaToJSON));
   });

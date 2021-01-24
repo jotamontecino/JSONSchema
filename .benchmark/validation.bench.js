@@ -96,5 +96,5 @@ bench(
       ajvNestedSchema(nestedJSON);
     },
   ],
-  { runs: 10000 }
+  { runs: 100000 }
 );

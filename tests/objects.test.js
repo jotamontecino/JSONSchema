@@ -50,10 +50,8 @@ const simpleSchema = {
     },
     int: {
       type: "integer",
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      exclusiveMinimum: 8,
+      exclusiveMaximum: 20,
     },
   },
 }
@@ -74,10 +72,10 @@ const simpleSchemaToJson = {
       description: "",
       defaultValue: null,
       multipleOf: null,
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      minimum: null,
+      exclusiveMinimum: 8,
+      maximum: null,
+      exclusiveMaximum: 20,
     }
   },
   additionalProperties:true,
@@ -156,10 +154,8 @@ const complexeSchema = {
     },
     int: {
       type: "integer",
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      exclusiveMinimum: 8,
+      exclusiveMaximum: 20,
     },
     bool: {
       type: "boolean"
@@ -200,10 +196,10 @@ const complexeSchemaToJSON = {
          "description":"",
          "defaultValue":null,
          "multipleOf":null,
-         "minimum":8,
-         "exclusiveMinimum":true,
-         "maximum":20,
-         "exclusiveMaximum":true,
+         "minimum":null,
+         "exclusiveMinimum":8,
+         "maximum":null,
+         "exclusiveMaximum":20,
       },
       "bool":{
          "type":"boolean",
@@ -286,10 +282,8 @@ const nestedchema = {
     },
     int: {
       type: "integer",
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      exclusiveMinimum: 8,
+      exclusiveMaximum: 20,
     },
     bool: {
       type: "boolean",
@@ -331,10 +325,10 @@ const nestedSchemaToJSON = {
        "description":"",
        "defaultValue":null,
        "multipleOf":null,
-       "minimum":8,
-       "exclusiveMinimum":true,
-       "maximum":20,
-       "exclusiveMaximum":true,
+       "minimum":null,
+       "exclusiveMinimum":8,
+       "maximum":null,
+       "exclusiveMaximum":20,
     },
     "bool":{
        "type":"boolean",

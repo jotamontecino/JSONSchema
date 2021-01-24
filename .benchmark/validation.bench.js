@@ -1,4 +1,6 @@
 const JSONFactory = require("../lib");
+const Ajv = require("ajv").default;
+const ajv = new Ajv() // options can be passed, e.g. {allErrors: true}
 
 const simpleJSONSchema = {
   type: "object",
@@ -11,10 +13,8 @@ const simpleJSONSchema = {
     },
     int: {
       type: "integer",
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      exclusiveMinimum: 8,
+      exclusiveMaximum: 20,
     }
   }
 }
@@ -24,6 +24,8 @@ const simpleJSON = {
   nouveauChamps: true
 };
 const simpleSchema = JSONFactory(simpleJSONSchema);
+
+const ajvSimpleSchema = ajv.compile(simpleJSONSchema)
 
 
 const nestedJSONSchema = {
@@ -37,10 +39,8 @@ const nestedJSONSchema = {
     },
     int: {
       type: "integer",
-      minimum: 8,
-      exclusiveMinimum: true,
-      maximum: 20,
-      exclusiveMaximum: true,
+      exclusiveMinimum: 8,
+      exclusiveMaximum: 20,
     },
     bool: {
       type: "boolean"
@@ -70,6 +70,8 @@ const nestedJSON = {
   result: false,
   value: {
     text: "90867ET",
+    bool: false,
+    int:12,
     address: {
       city : "Ville",
       country: "Pays"
@@ -77,15 +79,22 @@ const nestedJSON = {
   }
 };
 const nestedSchema = JSONFactory(nestedJSONSchema);
+const ajvNestedSchema = ajv.compile(nestedJSONSchema)
 
 bench(
   [
     function simpleJSON() {
       simpleSchema.validate(simpleJSON);
     },
-    function simpleJSON() {
+    function nestedJSON() {
       nestedSchema.validate(nestedJSON);
     },
+    function AJVsimpleJSON() {
+      ajvSimpleSchema(simpleJSON);
+    },
+    function AJVNestedJSON() {
+      ajvNestedSchema(nestedJSON);
+    },
   ],
-  { runs: 10000 }
+  { runs: 100000 }
 );

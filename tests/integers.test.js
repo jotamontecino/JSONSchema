@@ -23,8 +23,7 @@ const minimumInvalidFloatSchema = {
 const strictMinimumInvalidValueSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  minimum: 1,
-  exclusiveMinimum: 0,
+  exclusiveMinimum: 1.2,
 }
 
 const inclusiveMinimumSchema = {
@@ -63,16 +62,15 @@ const inclusiveMinimumExemples = [
 const exclusiveMinimumSchema = {
   type: "integer",
   description: "exclusiveMinimumSchema",
-  minimum: 12,
-  exclusiveMinimum: true,
+  exclusiveMinimum: 12,
 }
 const exclusiveMinimumSchemaToJSON = {
   type: "integer",
   description:"exclusiveMinimumSchema",
   defaultValue:null,
   multipleOf:null,
-  minimum:12,
-  exclusiveMinimum:true,
+  minimum:null,
+  exclusiveMinimum:12,
   maximum:null,
   exclusiveMaximum:null,
 }
@@ -98,13 +96,12 @@ const exclusiveMinimumExemples = [
 const maximumInvalidFloatSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  minimum: 1.2,
+  maximum: 1.2,
 }
 const strictMaximumInvalidValueSchema = {
   type: "integer",
   description: "Standard schema with a validaton pattern",
-  minimum: 1,
-  exclusiveMinimum: 0,
+  exclusiveMaximum: 1.3,
 }
 const inclusiveMaximumSchema = {
   type: "integer",
@@ -142,8 +139,7 @@ const inclusiveMaximumExemples = [
 const exclusiveMaximumSchema = {
   type: "integer",
   description: "exclusiveMinimumSchema",
-  maximum: 12,
-  exclusiveMaximum: true,
+  exclusiveMaximum: 12,
 }
 const exclusiveMaximumSchemaToJSON = {
   type: "integer",
@@ -152,8 +148,8 @@ const exclusiveMaximumSchemaToJSON = {
   multipleOf:null,
   minimum:null,
   exclusiveMinimum:null,
-  maximum:12,
-  exclusiveMaximum:true,
+  maximum:null,
+  exclusiveMaximum:12,
 }
 const exclusiveMaximumExemples = [
   {
@@ -180,12 +176,12 @@ const multipleOfInvalidSchema = {
 }
 const multipleOfSchema = {
   type: "integer",
-  description: "exclusiveMinimumSchema",
+  description: "multipleOfSchema",
   multipleOf: 2.0,
 }
 const multipleOfSchemaToJSON = {
   type: "integer",
-  description:"exclusiveMinimumSchema",
+  description:"multipleOfSchema",
   defaultValue:null,
   multipleOf:2.0,
   minimum:null,
@@ -258,7 +254,6 @@ describe("Exclusive Minimum validation", () => {
 
 
 describe("Maximum and strictMaximum invalid property", () => {
-  // const schema = jsonFactory(stringSchemaStdInvalid);
   function compileMaximum() {
     jsonFactory(maximumInvalidFloatSchema);
   }
